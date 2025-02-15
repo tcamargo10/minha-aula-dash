@@ -16,16 +16,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useActionState } from "react";
 import type * as z from "zod";
-import { handleSignup } from "@/actions/authentication";
 import { signupSchema } from "@/app/register/schema";
 import { fetchAddressFromCep } from "@/actions/address";
+import { handleSignup } from "@/actions/authentication";
 
 type FormData = z.infer<typeof signupSchema>;
 
 export function SignupForm() {
-  const [state, formAction] = useActionState(handleSignup, {});
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -40,14 +38,22 @@ export function SignupForm() {
     },
   });
 
+  const [serverResponse, setServerResponse] = useState<{
+    error?: string;
+    success?: string;
+  }>({});
+
   const onSubmit = handleSubmit(async (data) => {
     setIsLoading(true);
-    const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => {
-      formData.append(key, value as string);
-    });
-    await formAction(formData);
-    setIsLoading(false);
+    try {
+      const response = await handleSignup(data);
+      setServerResponse(response);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return { error: error.message || "An unexpected error occurred." };
+      }
+      return { error: "An unknown error occurred." };
+    }
   });
 
   const handleCepBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
@@ -268,11 +274,15 @@ export function SignupForm() {
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Carregando..." : "Cadastrar"}
           </Button>
-          {state.error && (
-            <p className="text-red-500 text-center mt-4">{state.error}</p>
+          {serverResponse.error && (
+            <p className="text-red-500 text-center mt-4">
+              {serverResponse.error}
+            </p>
           )}
-          {state.success && (
-            <p className="text-green-500 text-center mt-4">{state.success}</p>
+          {serverResponse.success && (
+            <p className="text-green-500 text-center mt-4">
+              {serverResponse.success}
+            </p>
           )}
         </form>
       </CardContent>

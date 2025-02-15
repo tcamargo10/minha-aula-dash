@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { FrontEndRoutes } from "@/constants/frontendRoutes";
+import { FormEvent } from "react";
 
 export function LoginForm({
   className,
@@ -13,7 +14,7 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"form">) {
   const router = useRouter();
 
-  const onLogin = (event: any) => {
+  const onLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     router.push(FrontEndRoutes.DASHBOARD);
