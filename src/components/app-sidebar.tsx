@@ -21,6 +21,7 @@ import {
   SidebarMenuButton,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { FrontEndRoutes } from "@/constants/frontendRoutes";
 
 // This is sample data.
 const data = {
@@ -32,12 +33,12 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: FrontEndRoutes.DASHBOARD,
       icon: SquareTerminal,
     },
     {
       title: "Alunos",
-      url: "#",
+      url: FrontEndRoutes.STUDENTS,
       icon: BookOpen,
     },
     {
