@@ -7,15 +7,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getClassHistory } from "@/mocks";
 
-// This would typically come from an API call
-const mockClasses = [
-  { id: 1, date: "2023-03-01", subject: "Matemática", attendance: "Presente" },
-  { id: 2, date: "2023-03-03", subject: "Português", attendance: "Ausente" },
-  { id: 3, date: "2023-03-05", subject: "História", attendance: "Presente" },
-];
+export default async function ClassHistory({
+  studentId,
+}: {
+  studentId: string;
+}) {
+  const classes = await getClassHistory(studentId);
 
-export default function ClassHistory({ studentId }: { studentId: string }) {
   return (
     <Card>
       <CardHeader>
@@ -31,7 +31,7 @@ export default function ClassHistory({ studentId }: { studentId: string }) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {mockClasses.map((classItem) => (
+            {classes.map((classItem) => (
               <TableRow key={classItem.id}>
                 <TableCell>{classItem.date}</TableCell>
                 <TableCell>{classItem.subject}</TableCell>

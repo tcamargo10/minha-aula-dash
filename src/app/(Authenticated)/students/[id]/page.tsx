@@ -10,9 +10,10 @@ import ClassHistory from "./components/ClassHistory";
 export default async function StudentPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const student = await getStudentById(params.id);
+  const studentId = (await params).id;
+  const student = await getStudentById(studentId);
 
   if (!student) {
     notFound();
