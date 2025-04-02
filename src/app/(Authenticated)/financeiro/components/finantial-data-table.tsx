@@ -17,7 +17,14 @@ export const FinantialDataTableColumns: ColumnDef<IFinantialResponse>[] = [
   {
     accessorKey: "value",
     header: "Valor",
-    cell: ({ row }) => <div>R$ {row.getValue("value").toFixed(2)}</div>,
+    cell: ({ row }) => {
+      const value = row.getValue("value");
+      return (
+        <div>
+          R$ {typeof value === "number" ? value.toFixed(2) : String(value)}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "expirationDate",
