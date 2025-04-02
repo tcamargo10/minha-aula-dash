@@ -16,7 +16,7 @@ export type Member = {
   id: number;
   nome: string;
   email: string;
-  tipo: "professor" | "aluno";
+  tipo: string;
   avatar: string;
   status: string;
 };
@@ -58,10 +58,10 @@ export const columns: ColumnDef<Member>[] = [
       const tipo = row.original.tipo;
       return (
         <Badge
-          variant={tipo === "professor" ? "default" : "secondary"}
+          variant={tipo === "Professor" ? "default" : "secondary"}
           className="font-normal"
         >
-          {tipo === "professor" ? "Professor" : "Aluno"}
+          {tipo}
         </Badge>
       );
     },

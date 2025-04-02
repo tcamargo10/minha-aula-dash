@@ -4,6 +4,7 @@ import { columns } from "./columns";
 import { EditTurmaModal } from "./edit-turma-modal";
 import { AddAlunoModal } from "./add-aluno-modal";
 import { Users, Clock, Calendar } from "lucide-react";
+import { use } from "react";
 
 // Dados simulados de uma turma específica
 const turma = {
@@ -34,7 +35,13 @@ const turma = {
   ],
 };
 
-export default function TurmaPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function TurmaPage({ params }: PageProps) {
+  const { id } = use(params);
+
   return (
     <div className="flex h-full flex-col gap-6 p-6">
       <div className="flex justify-between items-center">
@@ -45,7 +52,7 @@ export default function TurmaPage({ params }: { params: { id: string } }) {
           </p>
         </div>
         <div className="flex gap-2">
-          <AddAlunoModal turmaId={params.id} />
+          <AddAlunoModal turmaId={id} />
           <EditTurmaModal turma={turma} />
         </div>
       </div>

@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type * as z from "zod";
-import { signupSchema } from "@/app/register/schema";
+import { signupSchema } from "@/app/(auth)/cadastro/schema";
 import { fetchAddressFromCep } from "@/actions/address";
 import { handleSignup } from "@/actions/authentication";
 

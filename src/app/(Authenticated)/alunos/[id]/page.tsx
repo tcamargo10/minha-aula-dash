@@ -6,9 +6,18 @@ import { getStudentById } from "@/mocks";
 import PaymentHistory from "./components/PaymentHistory";
 import StudentDetails from "./components/StudentDetails";
 import ClassHistory from "./components/ClassHistory";
+import { use } from "react";
 
-export default async function StudentPage() {
-  const student = await getStudentById("1");
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function StudentPage({ params }: PageProps) {
+  const { id } = use(params);
+  const student = use(getStudentById(id));
 
   if (!student) {
     notFound();
