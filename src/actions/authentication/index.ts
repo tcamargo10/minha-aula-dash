@@ -1,4 +1,4 @@
-import { signupSchema } from "@/app/register/schema";
+import { signupSchema } from "@/app/(auth)/cadastro/schema";
 
 type SignupResponse = {
   success?: string;
