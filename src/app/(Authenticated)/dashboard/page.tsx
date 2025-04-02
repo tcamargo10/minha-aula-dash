@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DashboardContent from "./dashboard-content";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   title: "Painel de Controle",
@@ -8,10 +9,13 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="flex-1">
+    <div className="container mx-auto p-6">
+      <div className="fixed top-0 left-0 h-screen w-64 bg-background border-r">
+        <AppSidebar />
+      </div>
+      <div>
         <DashboardContent />
-      </main>
+      </div>
     </div>
   );
 }

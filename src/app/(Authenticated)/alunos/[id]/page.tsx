@@ -7,13 +7,8 @@ import PaymentHistory from "./components/PaymentHistory";
 import StudentDetails from "./components/StudentDetails";
 import ClassHistory from "./components/ClassHistory";
 
-export default async function StudentPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const studentId = (await params).id;
-  const student = await getStudentById(studentId);
+export default async function StudentPage() {
+  const student = await getStudentById("1");
 
   if (!student) {
     notFound();

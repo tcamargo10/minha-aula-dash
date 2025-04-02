@@ -1,6 +1,7 @@
 export const FrontEndRoutes = {
   LOGIN: "/login",
   DASHBOARD: "/dashboard",
-  REGISTER: "/register",
-  STUDENTS: "/students",
+  REGISTER: "/cadastro",
+  STUDENTS: "/alunos",
+  FINANCIAL: "/financeiro",
 };

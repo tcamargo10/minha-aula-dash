@@ -1,0 +1,74 @@
+{
+  "finantial": [
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "value": 150.0,
+      "expirationDate": "2025-03-01",
+      "status": "active"
+    },
+    {
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "value": 200.5,
+      "expirationDate": "2025-03-05",
+      "status": "pending"
+    },
+    {
+      "name": "Emily White",
+      "email": "emilywhite@example.com",
+      "value": 100.75,
+      "expirationDate": "2025-02-28",
+      "status": "expired"
+    },
+    {
+      "name": "Robert Brown",
+      "email": "robertbrown@example.com",
+      "value": 250.0,
+      "expirationDate": "2025-03-10",
+      "status": "active"
+    },
+    {
+      "name": "Olivia Green",
+      "email": "oliviagreen@example.com",
+      "value": 175.25,
+      "expirationDate": "2025-03-15",
+      "status": "pending"
+    },
+    {
+      "name": "Alan Blue",
+      "email": "alanblue@example.com",
+      "value": 300.0,
+      "expirationDate": "2025-03-20",
+      "status": "active"
+    },
+    {
+      "name": "Sophia Grey",
+      "email": "sophiagrey@example.com",
+      "value": 225.5,
+      "expirationDate": "2025-03-25",
+      "status": "expired"
+    },
+    {
+      "name": "Daniel Red",
+      "email": "danielred@example.com",
+      "value": 190.0,
+      "expirationDate": "2025-03-30",
+      "status": "pending"
+    },
+    {
+      "name": "Laura Violet",
+      "email": "lauraviolet@example.com",
+      "value": 275.75,
+      "expirationDate": "2025-04-05",
+      "status": "active"
+    },
+    {
+      "name": "Clara Orange",
+      "email": "claraorange@example.com",
+      "value": 160.5,
+      "expirationDate": "2025-04-10",
+      "status": "expired"
+    }
+  ]
+}
