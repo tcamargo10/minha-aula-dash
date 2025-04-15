@@ -22,11 +22,12 @@ export default function LoginPage() {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <Image
-          src="/placeholder.svg"
-          alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-          width={200}
-          height={200}
+          src="/globe.svg"
+          alt="Login background"
+          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.6] dark:grayscale"
+          width={800}
+          height={600}
+          priority
         />
       </div>
     </div>
