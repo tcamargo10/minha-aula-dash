@@ -15,7 +15,8 @@ import {
   GraduationCap,
   DollarSign,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Badge } from "./ui/badge";
 
 const menuItems = [
   {
@@ -70,32 +71,27 @@ export function AppSidebar() {
         </div>
       </div>
       <ScrollArea className="flex-1">
-        <div className="space-y-1 p-2">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Button
-                key={item.href}
-                variant={pathname === item.href ? "secondary" : "ghost"}
-                className={cn(
-                  "w-full justify-start gap-2",
-                  pathname === item.href && "bg-secondary"
-                )}
-                asChild
-              >
-                <Link href={item.href}>
-                  <Icon className="h-4 w-4" />
-                  {item.title}
-                </Link>
-              </Button>
-            );
-          })}
+        <div className="flex flex-col gap-2 p-4">
+          {menuItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-accent",
+                pathname === item.href ? "bg-accent" : "transparent"
+              )}
+            >
+              <item.icon className="h-4 w-4" />
+              {item.title}
+            </Link>
+          ))}
         </div>
       </ScrollArea>
-      <div className="border-t p-4">
-        <Button variant="ghost" className="w-full justify-start gap-3">
+      <div className="flex items-center gap-2 border-t p-4">
+        <ThemeToggle />
+        <Button variant="ghost" size="icon" className="ml-auto">
           <LogOut className="h-4 w-4" />
-          Sair
+          <span className="sr-only">Sair</span>
         </Button>
       </div>
     </div>
